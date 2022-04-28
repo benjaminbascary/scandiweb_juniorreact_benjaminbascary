@@ -1,5 +1,6 @@
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from } from "@apollo/client";
 import {onError} from '@apollo/client/link';
+import React, { Component } from "react";
 import URI from "./utils/graphQlUri";
 
 const errorLink = onError(({ graphqlErrors, networkErrors }) => {
@@ -20,13 +21,14 @@ const client = new ApolloClient({
   link : link
 });
 
-
-function App() {
-  return (
-        <div>
-
-        </div>
-  );
+class App extends Component {
+    render() {
+      return (
+      <ApolloProvider client={client}>
+        Hello Im the App
+      </ApolloProvider>
+    );
+  }
 }
 
 export default App;
