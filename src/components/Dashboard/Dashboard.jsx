@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Header from '../Header/Header';
 import Product from '../Product/Product';
 import "./Dashboard.css";
 
@@ -13,13 +14,11 @@ export default class Dashboard extends Component {
   render() {
     return (
         <React.Fragment>
-        <div className='header'>
-          <h1>I am the header</h1>
-        </div>
+        <Header />
         <div className='wrapper'>
           <div className='products-wrapper'>
             {this.state.products.props.map((eachProduct) => {
-              return  <Product props={eachProduct}/>
+              return  <Product key={eachProduct.id} props={eachProduct}/>
             })}
           </div>
         </div>

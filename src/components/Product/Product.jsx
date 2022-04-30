@@ -10,6 +10,7 @@ export default class Product extends Component {
   }
 
   render() {
+    console.log(this.state.product.props)
     return (
       <div className='product-wrapper'>
         <div className='image-wrapper'>
@@ -17,6 +18,8 @@ export default class Product extends Component {
         </div>
         <div className='info-wrapper'>
           <p className='info-title'>{this.state.product.props.name}</p>
+          <p className='info-brand'>{this.state.product.props.brand}</p>
+          <p className='info-price'>{this.state.product.props.prices[0].amount}</p>
         </div>
       </div>
     )
