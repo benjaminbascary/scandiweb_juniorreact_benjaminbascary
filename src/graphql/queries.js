@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 
-const LOAD_USERS = gql`
+export const LOAD_PRODUCTS = gql`
+{
   categories {
     name
     products {
@@ -10,6 +11,13 @@ const LOAD_USERS = gql`
       name
       brand
       inStock
+      prices{
+        amount
+        currency{
+          label
+        }
+      }
     }
   }
+}
 `

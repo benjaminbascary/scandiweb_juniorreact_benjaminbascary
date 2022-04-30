@@ -1,6 +1,13 @@
-import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from } from "@apollo/client";
+import { 
+  ApolloClient,
+  InMemoryCache, 
+  ApolloProvider,
+  HttpLink,
+  from, 
+} from "@apollo/client";
 import {onError} from '@apollo/client/link/error';
 import React, { Component } from "react";
+import GetProducts from "./components/GetProducts/GetProducts";
 import URI from "./utils/graphQlUri";
 
 //GraphQl
@@ -22,13 +29,11 @@ const client = new ApolloClient({
   link : link
 });
 
-
-
 class App extends Component {
     render() {
       return (
       <ApolloProvider client={client}>
-        Hello Im the App
+        <GetProducts />
       </ApolloProvider>
     );
   };
