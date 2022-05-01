@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Cart from '../Cart/Cart';
 import Header from '../Header/Header';
 import Product from '../Product/Product';
 import "./Dashboard.css";
@@ -22,6 +23,7 @@ export default class Dashboard extends Component {
     return (
         <React.Fragment>
         <Header />
+        <Cart products={this.state.cart}/>
         <div className='wrapper'>
           <div className='products-wrapper'>
             {this.state.products.props.map((eachProduct) => {

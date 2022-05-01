@@ -67,3 +67,8 @@
     position: relative;
     margin-top: -60%; 
 }
+
+.add-product-button {
+    height: 7vh;
+    cursor: pointer;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import "./Header.css";
+import Cart from '../Cart/Cart';
 
 export default class Header extends Component {
   render() {

@@ -15,10 +15,7 @@ const GetProducts = () => {
     <div>
       {console.log(data)}
       {data?
-        <React.Fragment>
-          <Header props={data}/>
           <Dashboard props={data.categories[0].products}/> 
-        </React.Fragment>
       : 
         <div className='loading-container'>
           <p className='loading-text'>Loading...</p>
