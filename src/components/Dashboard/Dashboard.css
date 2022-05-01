@@ -12,3 +12,19 @@
     grid-template-columns: repeat(3, 1fr);
     width: 85%;
 }
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-button {
+    height: 25px;
+    cursor: pointer;
+    margin: 0px 30px 0px 0px;
+}
+
+
+

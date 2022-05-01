@@ -10,7 +10,6 @@ export default class Product extends Component {
   }
 
   render() {
-    console.log(this.state.product.props)
     return (
       <div className='product-wrapper'>
         <div className='image-wrapper'>

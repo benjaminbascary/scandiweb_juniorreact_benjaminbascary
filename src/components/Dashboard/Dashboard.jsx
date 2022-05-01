@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Cart from '../Cart/Cart';
-import Header from '../Header/Header';
 import Product from '../Product/Product';
 import "./Dashboard.css";
 
@@ -9,33 +8,50 @@ export default class Dashboard extends Component {
     super(props)
     this.state = {
       products : {...props},
-      cart : []
+      cart : [],
+      showShop: true 
     };
   };
 
   addProductToCart = (id) => {
     console.log(`adding... with id ${id}`)
     this.state.cart.push(id)
-    console.log(this.state.cart)
+  }
+
+  toggleShow = () => {
+    this.setState(({showShop}) => ({showShop: !showShop}))
   }
 
   render() {
     return (
-        <React.Fragment>
-        <Header />
-        <Cart products={this.state.cart}/>
-        <div className='wrapper'>
-          <div className='products-wrapper'>
-            {this.state.products.props.map((eachProduct) => {
-              return  <Product 
-                        key={eachProduct.id} 
-                        props={eachProduct} 
-                        add={this.addProductToCart}
-                      />
-            })}
-          </div>
+      <div>
+        <div className='header-container'>
+          <h1>Scandiweb Store</h1>
+          <img
+            className='cart-button'
+            src='./resources/cart.png'
+            alt='cart-button' 
+            onClick={this.toggleShow}
+          />
+          
         </div>
-        </React.Fragment>
+        {
+          this.state.showShop?
+            <div className='wrapper'>
+              <div className='products-wrapper'>
+                {this.state.products.props.map((eachProduct) => {
+                  return  <Product 
+                            key={eachProduct.id} 
+                            props={eachProduct} 
+                            add={this.addProductToCart}
+                          />
+                })}
+              </div>
+            </div>
+          :
+          <Cart products={this.state.cart}/>
+        }
+      </div>
     );
   };
 };
