@@ -26,14 +26,17 @@ export default class Dashboard extends Component {
     return (
       <div>
         <div className='header-container'>
-          <h1>Scandiweb Store</h1>
-          <img
-            className='cart-button'
-            src='./resources/cart.png'
-            alt='cart-button' 
-            onClick={this.toggleShow}
-          />
-          
+          <div className='title-container'>
+            <h1>Scandiweb Store</h1>
+          </div>
+          <div className='button-container' onClick={this.toggleShow}>
+            <p className='button-container-text'>{this.state.showShop ? "Go to cart" : "Continue shopping"}</p>
+            <img
+              className='cart-image'
+              src='./resources/cart.png'
+              alt='cart-button' 
+            />
+          </div>
         </div>
         {
           this.state.showShop?
