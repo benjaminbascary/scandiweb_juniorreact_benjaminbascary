@@ -28,6 +28,10 @@ export default class Product extends Component {
           <p className='info-brand'>{this.state.product.props.brand}</p>
           <div className='info-price-stock-container'>
             <p className='info-price'>{this.state.product.props.prices[0].amount}</p>
+            <button 
+              onClick={() => this.props.add(this.state.product.props.id)}>
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
