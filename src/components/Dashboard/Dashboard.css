@@ -12,3 +12,31 @@
     grid-template-columns: repeat(3, 1fr);
     width: 85%;
 }
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button-container {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0px 30px 0px 0px;
+    padding: 7px;
+}
+
+.button-container-text {
+    margin: 0px 7px 0px 0px;
+}
+
+.cart-image {
+    height: 25px;
+    
+}

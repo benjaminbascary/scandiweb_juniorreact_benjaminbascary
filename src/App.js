@@ -10,7 +10,7 @@ import React, { Component } from "react";
 import GetProducts from "./components/GetProducts/GetProducts";
 import URI from "./utils/graphQlUri";
 
-//GraphQl
+//GraphQl logic
 const errorLink = onError(({ graphqlErrors, networkErrors }) => {
   if (graphqlErrors) {
     graphqlErrors.map(({message, location, path}) => {
@@ -29,9 +29,11 @@ const client = new ApolloClient({
   link : link
 });
 
+// Store App
+
 class App extends Component {
-    render() {
-      return (
+  render() {
+    return (
       <ApolloProvider client={client}>
         <GetProducts />
       </ApolloProvider>

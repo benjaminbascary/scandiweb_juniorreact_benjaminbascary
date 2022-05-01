@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Cart.css';
+import { Link } from 'react-router-dom';
 
 export default class Cart extends Component {
 	constructor(props) {
@@ -16,14 +17,14 @@ export default class Cart extends Component {
   render() {
     return (
 			<div className='cart-container'>
-      			<button onClick={() => this.currentCart()}>
+				<button onClick={() => this.currentCart()}>
 					How many in the cart?
 				</button>
-			<ul>
-				{this.state.cart.map((eachProduct) => {
-					return <li>{eachProduct}</li>
-				})}
-			</ul>
+				<ul>
+					{this.state.cart.map((eachProduct) => {
+						return <li>{eachProduct}</li>
+					})}
+				</ul>
 			</div>
     );
   };
