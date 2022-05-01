@@ -12,7 +12,6 @@ export default class Dashboard extends Component {
   };
 
   render() {
-    console.log(this.state.products)
     return (
         <React.Fragment>
         <Header />

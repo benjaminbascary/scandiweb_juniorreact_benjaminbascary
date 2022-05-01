@@ -1,22 +1,24 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useQuery } from '@apollo/client';
 import { LOAD_PRODUCTS, LOAD_CURRENCIES } from '../../graphql/queries.js';
 import Dashboard from '../Dashboard/Dashboard.jsx';
+import Header from '../Header/Header.jsx';
 import "./GetProducts.css";
 const GetProducts = () => {
 
   const { error, loading, data } = useQuery(LOAD_PRODUCTS);
-
-  const { currencies_error, currencies_loading, currencies_data} = useQuery(LOAD_CURRENCIES);
 
   useEffect(() => {
     } , [data]);
 
   return (
     <div>
-      {console.log(currencies_data)}
-      {data? 
-        <Dashboard props={data.categories[0].products}/> 
+      {console.log(data)}
+      {data?
+        <React.Fragment>
+          <Header props={data}/>
+          <Dashboard props={data.categories[0].products}/> 
+        </React.Fragment>
       : 
         <div className='loading-container'>
           <p className='loading-text'>Loading...</p>
