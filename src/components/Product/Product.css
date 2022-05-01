@@ -21,12 +21,13 @@
     align-items: center;
     margin: 20px;
 }
-img {
+
+.image {
     margin: 30px 30px 0px 30px;
     height: 42vh;
     width: 42vh;
     object-fit:cover;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .info-title {

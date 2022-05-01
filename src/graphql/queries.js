@@ -21,3 +21,11 @@ export const LOAD_PRODUCTS = gql`
   }
 }
 `
+
+export const LOAD_CURRENCIES = gql`
+{
+  currencies {
+    symbol
+  }
+}
+`

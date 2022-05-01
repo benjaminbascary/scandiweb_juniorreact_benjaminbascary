@@ -15,7 +15,7 @@ export default class Product extends Component {
       <div className='product-wrapper'>
         <div className='image-wrapper'>
           <img
-            className={this.state.product.props.inStock ? "" : "out-stock"} 
+            className={this.state.product.props.inStock ? "image" : "image out-stock"} 
             src={this.state.product.props.gallery[0]} 
             alt="img"
           ></img>
