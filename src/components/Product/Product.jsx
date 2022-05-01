@@ -14,12 +14,21 @@ export default class Product extends Component {
     return (
       <div className='product-wrapper'>
         <div className='image-wrapper'>
-          <img src={this.state.product.props.gallery[0]} alt="img"></img>
+          <img
+            className={this.state.product.props.inStock ? "" : "out-stock"} 
+            src={this.state.product.props.gallery[0]} 
+            alt="img"
+          ></img>
+          <div className='out-stock-container'>
+            <p className='out-stock-text'>{this.state.product.props.inStock ? "" : "OUT OF STOCK"}</p>
+          </div>
         </div>
         <div className='info-wrapper'>
           <p className='info-title'>{this.state.product.props.name}</p>
           <p className='info-brand'>{this.state.product.props.brand}</p>
-          <p className='info-price'>{this.state.product.props.prices[0].amount}</p>
+          <div className='info-price-stock-container'>
+            <p className='info-price'>{this.state.product.props.prices[0].amount}</p>
+          </div>
         </div>
       </div>
     )

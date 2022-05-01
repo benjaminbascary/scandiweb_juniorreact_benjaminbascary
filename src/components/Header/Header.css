@@ -1,5 +1,20 @@
+.header-container {
+    background-color: rgb(255, 255, 255);
+    -webkit-box-shadow:0 1px 4px rgba(1, 0, 0, 0.3);
+    box-shadow:0 3px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:2;
+}
+
 .header-title-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    padding: 0px 20px 0px 20px;
 }

@@ -6,7 +6,7 @@ export default class Header extends Component {
     return (
       <div className='header-container'>
           <div className='header-title-container'>
-              <h1>SKANDIWEB</h1>
+              <h1>SCANDIWEB</h1>
               <h2>Store</h2>
           </div>
       </div>

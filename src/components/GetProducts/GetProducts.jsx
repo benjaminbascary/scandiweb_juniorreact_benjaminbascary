@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react'
-import { useQuery, gql } from '@apollo/client';
+import React, {useEffect} from 'react';
+import { useQuery } from '@apollo/client';
 import { LOAD_PRODUCTS } from '../../graphql/queries.js';
 import Dashboard from '../Dashboard/Dashboard.jsx';
-
+import "./GetProducts.css";
 const GetProducts = () => {
 
   const { error, loading, data } = useQuery(LOAD_PRODUCTS);
@@ -15,9 +15,12 @@ const GetProducts = () => {
       {data? 
         <Dashboard props={data.categories[0].products}/> 
       : 
-        <p>Loading...</p>}
+        <div className='loading-container'>
+          <p className='loading-text'>Loading...</p>
+        </div>
+      }
     </div>
-  )
-} 
+  );
+};
 
 export default GetProducts;
