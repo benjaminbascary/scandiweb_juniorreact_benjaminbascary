@@ -27,7 +27,7 @@ export default class Dashboard extends Component {
       <div>
         <div className='header-container'>
           <div className='title-container'>
-            <h1>Scandiweb Store</h1>
+            <h1 className='header-title'>Scandiweb Store</h1>
           </div>
           <div className='button-container' onClick={this.toggleShow}>
             <p className='button-container-text'>{this.state.showShop ? "Go to cart" : "Continue shopping"}</p>
@@ -39,19 +39,19 @@ export default class Dashboard extends Component {
           </div>
         </div>
         {
-          this.state.showShop?
-            <div className='wrapper'>
-              <div className='products-wrapper'>
-                {this.state.products.props.map((eachProduct) => {
-                  return  <Product 
-                            key={eachProduct.id} 
-                            props={eachProduct} 
-                            add={this.addProductToCart}
-                          />
-                })}
-              </div>
+        this.state.showShop?
+          <div className='wrapper'>
+            <div className='products-wrapper'>
+              {this.state.products.props.map((eachProduct) => {
+                return  <Product 
+                          key={eachProduct.id} 
+                          props={eachProduct} 
+                          add={this.addProductToCart}
+                        />
+              })}
             </div>
-          :
+          </div>
+        :
           <Cart products={this.state.cart}/>
         }
       </div>

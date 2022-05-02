@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Cart.css';
-import { Link } from 'react-router-dom';
 
 export default class Cart extends Component {
 	constructor(props) {
@@ -17,14 +16,31 @@ export default class Cart extends Component {
   render() {
     return (
 			<div className='cart-container'>
-				<button onClick={() => this.currentCart()}>
-					How many in the cart?
-				</button>
-				<ul>
+				<div className='cart-list-container'>
 					{this.state.cart.map((eachProduct) => {
-						return <li>{eachProduct}</li>
+						return (
+							<div key={eachProduct.id} className='cart-product-container'>
+								{console.log(eachProduct)}
+								<div className='cart-product-image-container'>
+									<img
+									className='product-image'
+									src={eachProduct.gallery[0]}
+									alt={eachProduct.name}
+									/>
+								</div>
+								<div className='cart-product-info-container'>
+									<p>{eachProduct.name}</p>
+									<p>{eachProduct.brand}</p>
+								</div>
+								<div className='cart-product-price-container'>
+									<input type='number' placeholder='1' className='cart-product-quantity-input'></input>
+									<p className='cart-product-prince'>{eachProduct.prices[0].amount}</p>
+									<p className='cart-product-currency'>{eachProduct.prices[0].currency.label}</p>
+								</div>
+							</div>
+							);
 					})}
-				</ul>
+				</div>
 			</div>
     );
   };

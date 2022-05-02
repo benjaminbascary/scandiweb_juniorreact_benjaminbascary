@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import "./Product.css"
+import React, { Component } from 'react';
+import "./Product.css";
 
 export default class Product extends Component {
   constructor(props) {
     super(props)
     this.state = {
       product : {...props}
-    }
-  }
+    };
+  };
 
   render() {
     return (
@@ -27,15 +27,20 @@ export default class Product extends Component {
           <p className='info-brand'>{this.state.product.props.brand}</p>
           <div className='info-price-stock-container'>
             <p className='info-price'>{this.state.product.props.prices[0].amount}</p>
-            <img
-              className='add-product-button'
-              src='./resources/add.png'
-              alt='add'
-              onClick={() => this.props.add(this.state.product.props.id)}>
-            </img>
+            {
+              this.state.product.props.inStock ?
+              <img
+                className='add-product-button'
+                src='./resources/add.png'
+                alt='add'
+                onClick={() => this.props.add(this.state.product.props)}>
+              </img>
+            :
+              null
+            }
           </div>
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};

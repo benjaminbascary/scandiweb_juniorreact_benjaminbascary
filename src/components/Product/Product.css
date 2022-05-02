@@ -6,6 +6,7 @@
     margin: 10px;
     border-radius: 3px;
     transition: all 0.6s;
+    box-shadow: 0 2px 2px -2px gray;
 }
 
 .product-wrapper:hover {
@@ -62,6 +63,7 @@
 }
 
 .out-stock-text {
+    color: rgb(72, 72, 72);
     font-size: 32px;
     font-weight: 700;
     position: relative;
@@ -71,4 +73,15 @@
 .add-product-button {
     height: 7vh;
     cursor: pointer;
+}
+
+.info-price-stock-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info-wrapper {
+    width: 50vh;
 }
