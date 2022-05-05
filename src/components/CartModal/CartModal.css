@@ -1,0 +1,13 @@
+.modal-button {
+    font-family: Raleway;
+    margin-left: 100%;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    background-color: #5ECE7B;
+    color: white;
+    border: none;
+    width: 15vh;
+    height: 5vh;
+    cursor: pointer;
+}

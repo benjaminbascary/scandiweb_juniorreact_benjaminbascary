@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
+import CartModal from '../CartModal/CartModal';
 import "./Dashboard.css";
 
 export default class Dashboard extends Component {
@@ -9,7 +10,9 @@ export default class Dashboard extends Component {
     this.state = {
       products : {...props},
       cart : [],
-      showShop: true 
+      showShop: true,
+      showPreCart: false,
+      active: false,
     };
   };
 
@@ -22,6 +25,10 @@ export default class Dashboard extends Component {
     this.setState(({showShop}) => ({showShop: !showShop}))
   }
 
+  setActive = () => {
+    this.setState(({active}) => ({active: !active}))
+  }
+
   render() {
     return (
       <div>
@@ -29,13 +36,13 @@ export default class Dashboard extends Component {
           <div className='title-container'>
             <h1 className='header-title'>Scandiweb Store</h1>
           </div>
+          <div>
+            <div className='cart-product-counter'></div>
+            <img className="header-cart-button" onClick={this.setActive} src="./resources/cart.png" alt="pre-cart"></img>
+          </div>
+          {this.state.active? <CartModal active={this.state.active} toggle={this.setActive} children={<div>hola</div>}/> : ""}
           <div className='button-container' onClick={this.toggleShow}>
-            <p className='button-container-text'>{this.state.showShop ? "Go to cart" : "Continue shopping"}</p>
-            <img
-              className='cart-image'
-              src='./resources/cart.png'
-              alt='cart-button' 
-            />
+            <p className='button-container-text'>{this.state.showShop ? "CHECK OUT" : "CONTINUE SHOPPING"}</p>
           </div>
         </div>
         {

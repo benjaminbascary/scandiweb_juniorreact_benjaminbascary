@@ -55,3 +55,18 @@
     margin: 7px;
 }
 
+.order-button {
+    font-family: Raleway;
+    margin-left: 100%;
+    margin-right: 100px;
+    margin-top: 20px;
+    background-color: #5ECE7B;
+    color: white;
+    border: none;
+    width: 15vh;
+    height: 5vh;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+

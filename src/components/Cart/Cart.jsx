@@ -40,6 +40,12 @@ export default class Cart extends Component {
 							</div>
 							);
 					})}
+        {
+        this.state.cart.length?
+        <button className='order-button'>ORDER</button>
+        : 
+        "You have no items in your bag yet!"
+        }
 				</div>
 			</div>
     );
