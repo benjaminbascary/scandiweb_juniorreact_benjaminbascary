@@ -51,7 +51,7 @@ export default class Product extends Component {
           <InfoModal 
             active={this.state.active} 
             toggle={this.setActive} 
-            children={<div>{this.state.product.props.name}</div>}
+            children={<div></div>}
             props={this.state.product}
           />
           : 

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Portal from '../Portal/Portal';
+import parse from 'html-react-parser';
 import "./InfoModal.css";
+
 export default class InfoModal extends Component {
 
   constructor(props){
 		super(props)
 		this.state = {
-			product : {...props}
+			product : props.props
 		}
 	}
 
@@ -19,9 +21,19 @@ export default class InfoModal extends Component {
         {active && (
           <div className="" style={styles.wrapper}>
             <div className="info-modal-wrapper" style={styles.window}>
-              <button className='modal-button' style={styles.closeBtn} onClick={toggle}>SAVE</button>
-              <div>{children}</div>
+            	<div>{children}</div>
+							<div className='info-modal-container'>
+								<div className='info-modal-container-left'>
+									{}
+								</div>
+								<div className='info-modal-container-rigth'>
+									<p>{this.state.product.props.brand}</p>
+									<p>{this.state.product.props.name}</p>
+									{parse(this.state.product.props.description)}
+								</div>
+							</div>
 							<div>{console.log(this.state.product)}</div>
+							<button className='modal-button' style={styles.closeBtn} onClick={toggle}>SAVE</button>
             </div>
           </div>
         )}
@@ -52,10 +64,10 @@ const styles = {
     padding: 15,
     boxShadow: "2px 2px 18px rgba(0,0,0,0.3)",
     zIndex: 11,
-		width: "100%",
+		width: "90%",
     minWidth: "30vh",
     height: "80vh",
-		marginTop: "200px",
+		marginTop: "100px",
   },
   closeBtn: {
     background: "#5ECE7B",

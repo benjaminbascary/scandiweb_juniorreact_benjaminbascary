@@ -8,6 +8,13 @@ export const LOAD_PRODUCTS = gql`
   categories {
     name
     products {
+      description
+      attributes{
+        name
+        items{
+          value
+        }
+      }
       inStock
       gallery
       id

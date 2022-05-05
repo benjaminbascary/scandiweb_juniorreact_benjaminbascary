@@ -1,0 +1,19 @@
+.info-modal-container{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    width: 97%;
+    height: 97%;
+}
+
+.info-modal-container-left {
+    border: 1px solid black;
+    display: flex;
+    width: 60%;
+}
+
+.info-modal-container-right {
+    border: 1px solid black;
+    display: flex;
+    width: 40%;
+}
