@@ -13,6 +13,7 @@ export default class Dashboard extends Component {
       showShop: true,
       showPreCart: false,
       active: false,
+      counter: 0,
     };
   };
 
@@ -29,6 +30,10 @@ export default class Dashboard extends Component {
     this.setState(({active}) => ({active: !active}))
   }
 
+  updateCounter = () => {
+    this.setState(prev => ({ counter: prev.counter + 1 }))
+  }
+
   render() {
     return (
       <div>
@@ -37,7 +42,9 @@ export default class Dashboard extends Component {
             <h1 className='header-title'>Scandiweb Store</h1>
           </div>
           <div>
-            <div className='cart-product-counter'></div>
+            <div className='cart-product-counter'>
+              {this.state.counter}
+            </div>
             <img className="header-cart-button" onClick={this.setActive} src="./resources/cart.png" alt="pre-cart"></img>
           </div>
           {this.state.active? <CartModal active={this.state.active} toggle={this.setActive} children={<div>hola</div>}/> : ""}
@@ -52,7 +59,8 @@ export default class Dashboard extends Component {
               {this.state.products.props.map((eachProduct) => {
                 return  <Product 
                           key={eachProduct.id} 
-                          props={eachProduct} 
+                          props={eachProduct}
+                          updateCounter={this.updateCounter}
                           add={this.addProductToCart}
                         />
               })}
