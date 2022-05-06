@@ -47,15 +47,17 @@ export default class Product extends Component {
           </div>
         </div>
         <button onClick={this.setActive}>show info</button>
-        {this.state.active? 
-          <InfoModal 
-            active={this.state.active} 
-            toggle={this.setActive} 
-            children={<div></div>}
-            props={this.state.product}
-          />
+        {
+          this.state.active? 
+            <InfoModal 
+              active={this.state.active} 
+              toggle={this.setActive} 
+              children={<div></div>}
+              props={this.state.product}
+              update={this.props.updateCounter}
+            />
           : 
-          ""
+            ""
         }
       </div>
     );

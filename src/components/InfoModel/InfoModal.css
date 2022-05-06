@@ -1,4 +1,4 @@
-.info-modal-container{
+.info-modal-container {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -8,12 +8,12 @@
 .info-modal-container-left {
     margin-right: 20px;
     display: flex;
-    width: 50%;
+    width: 60%;
 }
 
 .info-modal-container-right {
     display: flex;
-    width: 50%;
+    width: 40%;
 }
 
 .info-modal-button {
@@ -27,6 +27,11 @@
 }
 
 .info-modal-description {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.info-modal-description > h1 {
     font-size: 13px;
 }
 
@@ -93,6 +98,16 @@
     color:white;
     background-color: black;
     transition: 0.5s;
+}
+
+.color-attribute {
+    height: 15px;
+    width: 15px;
+    margin: 0px 3px 0px 0px;
+    padding: 6px 12px 6px 12px;
+    border: 1px solid black;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 .thumbnail-gallery {

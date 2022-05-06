@@ -9,8 +9,8 @@ export default class InfoModal extends Component {
 		super(props)
 		this.state = {
 			product : props.props
-		}
-	}
+		};
+	};
 
   render() {
 
@@ -52,9 +52,16 @@ export default class InfoModal extends Component {
 												this.state.product.props.attributes.map((eachAtr => {
 													return <div className='each-attribute-container'>
 																	<p className='attribute-name'>{eachAtr.name}:</p>
+																	{
+																		eachAtr.name === "Color" ?  
+																		<div className='attributes-container'>
+																			{eachAtr.items.map(eachSubAtr => {return <div className='color-attribute' style={{ backgroundColor: `${eachSubAtr.value}`}}></div>})}
+																		</div>
+																	:  
 																		<div className='attributes-container'>
 																			{eachAtr.items.map(eachSubAtr => {return <p className='attribute'>{eachSubAtr.value}</p>})}
 																		</div>
+																	}
 																</div>
 												}))}
 											</div>
@@ -62,8 +69,10 @@ export default class InfoModal extends Component {
 									</div>
 									<p className='info-modal-price-text'>PRICE:</p>
 									<p className='info-modal-price-numbers'>{this.state.product.props.prices[0].currency.label} {this.state.product.props.prices[0].amount}</p>
-									<button className='info-modal-button' style={styles.closeBtn} onClick={toggle}>ADD TO CART</button>
-									<div className='.info-modal-description'>{parse(this.state.product.props.description)}</div>
+									<button onClick={() => {this.props.update(); toggle()}} className='info-modal-button' style={styles.closeBtn} >ADD TO CART</button>
+									<div className='info-modal-description'>
+										{parse(this.state.product.props.description)}
+									</div>
 								</div>
 							</div>
 							<div>{console.log(this.state.product)}</div>
