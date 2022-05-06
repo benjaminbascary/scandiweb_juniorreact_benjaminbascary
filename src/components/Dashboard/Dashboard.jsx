@@ -9,6 +9,7 @@ export default class Dashboard extends Component {
     super(props)
     this.state = {
       products : {...props},
+      currency : {},
       cart : [],
       showShop: true,
       showPreCart: false,
@@ -18,7 +19,6 @@ export default class Dashboard extends Component {
   };
 
   addProductToCart = (id) => {
-    console.log(`adding... with id ${id}`)
     this.state.cart.push(id)
   }
 
@@ -37,6 +37,7 @@ export default class Dashboard extends Component {
   render() {
     return (
       <div>
+        {console.log(this.props.currencies)}
         <div className='header-container'>
           <div className='title-container'>
             <h1 className='header-title'>Scandiweb Store</h1>

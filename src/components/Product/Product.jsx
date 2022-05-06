@@ -39,14 +39,13 @@ export default class Product extends Component {
                 className='add-product-button'
                 src='./resources/add.png'
                 alt='add'
-                onClick={() => {this.props.add(this.state.product.props); this.props.updateCounter()}}>
+                onClick={() => {this.props.add(this.state.product.props); this.setActive() /*</div>this.props.updateCounter()*/}}>
               </img>
             :
               null
             }
           </div>
         </div>
-        <button onClick={this.setActive}>show info</button>
         {
           this.state.active? 
             <InfoModal 
