@@ -4,3 +4,14 @@ body {
   font-family: Raleway;
   font-weight: bold;
 };
+
+.portal-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

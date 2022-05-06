@@ -1,22 +1,19 @@
 .info-modal-container{
     display: flex;
     flex-direction: row;
-    border: 1px solid black;
-    width: 97%;
+    width: 100%;
     height: 97%;
 }
 
 .info-modal-container-left {
     margin-right: 20px;
-    border: 1px solid black;
     display: flex;
-    width: 60%;
+    width: 50%;
 }
 
 .info-modal-container-right {
-    border: 1px solid black;
     display: flex;
-    width: 40%;
+    width: 50%;
 }
 
 .info-modal-button {
@@ -96,4 +93,19 @@
     color:white;
     background-color: black;
     transition: 0.5s;
+}
+
+.thumbnail-gallery {
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail-gallery > img {
+    width: 7vh;
+    margin: 2px 30px 2px 30px;
+}
+
+.main-thumbnail {
+    width: auto;
+    height: 100%;
 }

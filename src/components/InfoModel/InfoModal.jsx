@@ -19,7 +19,7 @@ export default class InfoModal extends Component {
     return (
       <Portal>
         {active && (
-          <div className="" style={styles.wrapper}>
+          <div className="portal-container" style={styles.wrapper}>
             <div className="info-modal-wrapper" style={styles.window}>
             	<div>{children}</div>
 							<div className='info-modal-container'>
@@ -79,7 +79,8 @@ const styles = {
   wrapper: {
     position: "absolute",
     top: 0,
-    left: 0,
+		left: 1,
+		right: 1,
     width: "100%",
     height: "90vh",
     display: "flex",
