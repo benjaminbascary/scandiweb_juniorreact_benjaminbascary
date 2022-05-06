@@ -7,12 +7,11 @@ const GetProducts = () => {
 
   const { error, loading, data } = useQuery(LOAD_PRODUCTS);
 
-
   return (
     <div>
       {
         data?
-          <Dashboard props={data.categories[0].products}/> 
+          <Dashboard props={data.categories[0].products} currencies={data.currencies}/> 
       : 
         <div className='loading-container'>
           <p className='loading-text'>Loading...</p>

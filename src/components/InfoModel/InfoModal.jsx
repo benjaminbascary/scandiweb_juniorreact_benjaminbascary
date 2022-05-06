@@ -9,8 +9,8 @@ export default class InfoModal extends Component {
 		super(props)
 		this.state = {
 			product : props.props
-		}
-	}
+		};
+	};
 
   render() {
 
@@ -19,21 +19,63 @@ export default class InfoModal extends Component {
     return (
       <Portal>
         {active && (
-          <div className="" style={styles.wrapper}>
+          <div className="portal-container" style={styles.wrapper}>
             <div className="info-modal-wrapper" style={styles.window}>
             	<div>{children}</div>
 							<div className='info-modal-container'>
 								<div className='info-modal-container-left'>
-									{}
+									{
+										this.state.product.props.gallery.length > 0 ? 
+										<div className='thumbnail-gallery'>
+											{this.state.product.props.gallery.map((each) => {
+												return <img className="thumbnail" src={each} alt="thumbnail"/>
+											})}
+										</div>
+									: 
+										""
+									}
+										<img 
+											className='main-thumbnail'
+											src={this.state.product.props.gallery[0]}
+											alt="product"
+										/>
 								</div>
 								<div className='info-modal-container-rigth'>
-									<p>{this.state.product.props.brand}</p>
-									<p>{this.state.product.props.name}</p>
-									{parse(this.state.product.props.description)}
+									<p className='info-modal-brand'>{this.state.product.props.brand}</p>
+									<p className='info-modal-name'>{this.state.product.props.name}</p>
+									<div className='attributes-container'>
+										{
+											this.state.product.props.attributes.length === 0 ? 
+												null 
+											: 
+											<div>{
+												this.state.product.props.attributes.map((eachAtr => {
+													return <div className='each-attribute-container'>
+																	<p className='attribute-name'>{eachAtr.name}:</p>
+																	{
+																		eachAtr.name === "Color" ?  
+																		<div className='attributes-container'>
+																			{eachAtr.items.map(eachSubAtr => {return <div className='color-attribute' style={{ backgroundColor: `${eachSubAtr.value}`}}></div>})}
+																		</div>
+																	:  
+																		<div className='attributes-container'>
+																			{eachAtr.items.map(eachSubAtr => {return <p className='attribute'>{eachSubAtr.value}</p>})}
+																		</div>
+																	}
+																</div>
+												}))}
+											</div>
+										}
+									</div>
+									<p className='info-modal-price-text'>PRICE:</p>
+									<p className='info-modal-price-numbers'>{this.state.product.props.prices[0].currency.label} {this.state.product.props.prices[0].amount}</p>
+									<button onClick={() => {this.props.update(); toggle()}} className='info-modal-button' style={styles.closeBtn} >ADD TO CART</button>
+									<div className='info-modal-description'>
+										{parse(this.state.product.props.description)}
+									</div>
 								</div>
 							</div>
 							<div>{console.log(this.state.product)}</div>
-							<button className='modal-button' style={styles.closeBtn} onClick={toggle}>SAVE</button>
             </div>
           </div>
         )}
@@ -46,7 +88,8 @@ const styles = {
   wrapper: {
     position: "absolute",
     top: 0,
-    left: 0,
+		left: 1,
+		right: 1,
     width: "100%",
     height: "90vh",
     display: "flex",
@@ -71,8 +114,5 @@ const styles = {
   },
   closeBtn: {
     background: "#5ECE7B",
-    position: "absolute",
-    bottom: 0,
-    right: 0,
   }
 };

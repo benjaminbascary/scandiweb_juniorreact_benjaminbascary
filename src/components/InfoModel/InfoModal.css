@@ -1,19 +1,126 @@
-.info-modal-container{
+.info-modal-container {
     display: flex;
     flex-direction: row;
-    border: 1px solid black;
-    width: 97%;
+    width: 100%;
     height: 97%;
 }
 
 .info-modal-container-left {
-    border: 1px solid black;
+    margin-right: 20px;
     display: flex;
     width: 60%;
 }
 
 .info-modal-container-right {
-    border: 1px solid black;
     display: flex;
     width: 40%;
+}
+
+.info-modal-button {
+    font-size: 15px;
+    color: white;
+    border: none;
+    width: 38vh;
+    height: 6vh;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.info-modal-description {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.info-modal-description > h1 {
+    font-size: 13px;
+}
+
+.info-modal-price-text {
+    font-size: large;
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+.info-modal-brand {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.info-modal-name {
+    font-size: 20px;
+    font-weight: 300;
+    margin-top: 3px;
+    margin-bottom: 0px;
+}
+
+.info-modal-price-numbers {
+    font-weight: 600;
+}
+
+.attributes-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.each-attribute-container {
+    width: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.each-attribute-container > p {
+    margin: 5px 0px 5px 0px;
+}
+
+.attributes-container > p {
+    margin: 0px 0px 0px 3px;
+}
+
+.attribute-name {
+    font-family: "Roboto Condensed";
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.attribute {
+    font-size: 10px;
+    padding: 6px 12px 6px 12px;
+    border: 1px solid black;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.attribute:hover {
+    color:white;
+    background-color: black;
+    transition: 0.5s;
+}
+
+.color-attribute {
+    height: 15px;
+    width: 15px;
+    margin: 0px 3px 0px 0px;
+    padding: 6px 12px 6px 12px;
+    border: 1px solid black;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.thumbnail-gallery {
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail-gallery > img {
+    width: 7vh;
+    margin: 2px 30px 2px 30px;
+}
+
+.main-thumbnail {
+    width: auto;
+    height: 100%;
 }
