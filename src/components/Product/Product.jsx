@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import "./Product.css";
 import InfoModal from '../InfoModel/InfoModal';
 
+import { COIN } from '../../utils/coins';
+
 export default class Product extends Component {
   constructor(props) {
     super(props)
@@ -34,7 +36,21 @@ export default class Product extends Component {
           <div className='info-price-stock-container'>
             <div className='info-symbol-price'>
               <p>{this.props.symbol}</p>
-              <p className='info-price'>{this.state.product.props.prices[0].amount}</p>
+              <p className='info-price'>
+                {
+                  this.props.symbol === COIN.USD.symbol/*"$"*/ ? this.state.product.props.prices[COIN.USD.index].amount
+                  : 
+                  this.props.symbol === "£" ? this.state.product.props.prices[1].amount/*this.state.product.props.prices[0].amount*/
+                  :
+                  this.props.symbol === "A$" ? this.state.product.props.prices[2].amount
+                  :
+                  this.props.symbol === "¥" ? this.state.product.props.prices[3].amount
+                  :
+                  this.props.symbol === "₽" ? this.state.product.props.prices[4].amount
+                  :
+                  "Choose your currency!"
+                }
+              </p>
             </div>
             {
               this.state.product.props.inStock ?

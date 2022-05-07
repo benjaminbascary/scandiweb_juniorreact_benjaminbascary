@@ -5,12 +5,16 @@ import CartModal from '../CartModal/CartModal';
 import "./Dashboard.css";
 import Currencies from '../Currencies/Currencies';
 
+import { COIN } from '../../utils/coins';
+
 export default class Dashboard extends Component {
   constructor(props) {
     super(props)
     this.state = {
       products : {...props},
       currencies : this.props.currencies,
+      currentSymbol: COIN.USD.symbol,
+      currentPriceIndex: 0,
       cart : [],
       showShop: true,
       showPreCart: false,
@@ -35,6 +39,11 @@ export default class Dashboard extends Component {
     this.setState(prev => ({ counter: prev.counter + 1 }))
   };
 
+  setCurrentCurrency = (symbol) => {
+    /*this.setCurrentCurrencyIndex(this.state.currentSymbol)*/
+    this.setState(({currentSymbol : symbol}))
+  };
+
   render() {
     return (
       <div>
@@ -46,7 +55,7 @@ export default class Dashboard extends Component {
             <p className='button-container-text'>{this.state.showShop ? "CHECK OUT" : "CONTINUE SHOPPING"}</p>
           </div>
           <div className='button-currencies-container'>
-            <Currencies currencies={this.props.currencies}/>
+            <Currencies handleChange={this.setCurrentCurrency} currencies={this.props.currencies}/>
             {this.state.active? <CartModal active={this.state.active} toggle={this.setActive} children={<div>hola</div>}/> : ""}
             <div>
             <div className='cart-product-counter'>
@@ -57,22 +66,24 @@ export default class Dashboard extends Component {
         </div>
         </div>
         {
-        this.state.showShop?
-          <div className='wrapper'>
-            <div className='products-wrapper'>
-              {this.state.products.props.map((eachProduct) => {
-                return  <Product 
-                          key={eachProduct.id} 
-                          props={eachProduct}
-                          updateCounter={this.updateCounter}
-                          add={this.addProductToCart}
-                          symbol={this.state.currencies[0].symbol} //como prueba le estoy pasando el simbolo numero [0] del array de simbolos
-                        />
-              })}
+          this.state.showShop?
+            <div className='wrapper'>
+              <div className='products-wrapper'>
+                {
+                  this.state.products.props.map((eachProduct) => {
+                    return  <Product
+                              key={eachProduct.id} 
+                              props={eachProduct}
+                              updateCounter={this.updateCounter}
+                              add={this.addProductToCart}
+                              symbol={this.state.currentSymbol}
+                            />
+                    })
+                }
+              </div>
             </div>
-          </div>
-        :
-          <Cart products={this.state.cart}/>
+          :
+            <Cart products={this.state.cart}/>
         }
       </div>
     );
