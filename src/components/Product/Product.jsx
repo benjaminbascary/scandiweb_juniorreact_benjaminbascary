@@ -32,7 +32,10 @@ export default class Product extends Component {
           <p className='info-title'>{this.state.product.props.name}</p>
           <p className='info-brand'>{this.state.product.props.brand}</p>
           <div className='info-price-stock-container'>
-            <p className='info-price'>{this.state.product.props.prices[0].amount}</p>
+            <div className='info-symbol-price'>
+              <p>{this.props.symbol}</p>
+              <p className='info-price'>{this.state.product.props.prices[0].amount}</p>
+            </div>
             {
               this.state.product.props.inStock ?
               <img
