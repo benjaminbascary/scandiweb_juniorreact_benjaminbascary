@@ -12,4 +12,128 @@
     height: 6vh;
     cursor: pointer;
     box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+    transition: 0.5s,
+}
+
+.check-out-modal-button:hover {
+    transition: 0.5s;
+    background-color: white;
+    color: #5ECE7B;
+    border: #5ECE7B 1px solid;
+}
+
+
+.close-button {
+    font-family: Raleway;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    width: 18vh;
+    height: 6vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    border: 1px solid rgb(214, 214, 214);
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.close-button:hover {
+    transition: 0.5s;
+    border: none;
+    background-color: black;
+    color: white;
+}
+
+.pre-cart-quantity-text {
+    margin-top: 2px;
+    font-size: 13px;
+}
+
+.pre-cart-quantity {
+    margin-top: 2px;
+}
+
+.pre-cart-container {
+    margin-bottom: 100px;
+    overflow: auto;
+}
+
+.pre-cart-item-container {
+    display: flex;
+    flex-direction: row;
+    width: 38vh;
+    box-shadow: 0 2px 2px -2px gray;
+}
+
+.pre-cart-item-brand {
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.pre-cart-item-container-left {
+    display: flex;
+    flex-direction: column;
+    width: 25vh;
+}
+
+.pre-cart-item-container-rigth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20vh;
+}
+
+.pre-cart-item-name {
+    margin: 5px 0px 0px 0px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.pre-cart-item-image {
+    height: 90px;
+    margin-top: 10px;
+    margin-left: 20px;
+    border-radius: 3px;
+}
+
+.pre-cart-item-attribute {
+    font-size: 11px;
+}
+.pre-cart-item-attribute-values-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.value-container {
+    padding: 5px;
+    border: 1px solid rgb(158, 158, 158);
+    margin-right: 4px;
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+
+.value-container > p {
+    font-size: 10px;
+    margin: 0px 2px 0px 0px;
+}
+
+.color-container {
+    width: 10px;
+    height: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+
+.total-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 0px;
 }

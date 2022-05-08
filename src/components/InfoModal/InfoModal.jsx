@@ -29,7 +29,7 @@ export default class InfoModal extends Component {
 										this.state.product.props.gallery.length > 0 ? 
 										<div className='thumbnail-gallery'>
 											{this.state.product.props.gallery.map((each) => {
-												return <img className="thumbnail" src={each} alt="thumbnail"/>
+												return <img key={each} className="thumbnail" src={each} alt="thumbnail"/>
 											})}
 										</div>
 									: 
@@ -49,9 +49,10 @@ export default class InfoModal extends Component {
 											this.state.product.props.attributes.length === 0 ? 
 												null 
 											: 
-											<div>{
+											<div>
+												{
 												this.state.product.props.attributes.map((eachAtr => {
-													return <div className='each-attribute-container'>
+													return <div key={eachAtr.name} className='each-attribute-container'>
 																	<p className='attribute-name'>{eachAtr.name}:</p>
 																	{
 																		eachAtr.name === "Color" ?  
@@ -108,7 +109,7 @@ export default class InfoModal extends Component {
 									<div className='info-modal-description'>
 										{parse(this.state.product.props.description)}
 									</div>
-									<button className='info-modal-close-button' onClick={this.props.toggle}>Close</button>
+									<button className='info-modal-close-button' onClick={toggle}>Close</button>
 								</div>
 							</div>
 							<div>{console.log(this.state.product)}</div>
@@ -149,6 +150,6 @@ const styles = {
 		marginTop: "100px",
   },
   closeBtn: {
-    background: "#5ECE7B",
+    
   }
 };

@@ -10,7 +10,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 75%;
+    width: 90%;
+    height: 60vh ;
+    overflow: auto;
 }
 
 .cart-product-container {
@@ -20,11 +22,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 95%;
 }
 
 .product-image {
-    height: 15vh;
+    height: 10vh;
     border-radius: 5px;
 }
 
@@ -57,9 +59,8 @@
 
 .order-button {
     font-family: Raleway;
-    margin-left: 100%;
-    margin-right: 100px;
-    margin-top: 20px;
+    margin-left: 90%;
+    margin-right: 100px; 
     background-color: #5ECE7B;
     color: white;
     border: none;
@@ -94,4 +95,8 @@
 
 .tax-info > {
     font-family: RobotoCondensed;
+}
+
+.empty {
+    display: none;
 }

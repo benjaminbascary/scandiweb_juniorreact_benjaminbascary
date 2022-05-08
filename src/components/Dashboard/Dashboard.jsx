@@ -55,7 +55,16 @@ export default class Dashboard extends Component {
           </div>
           <div className='button-currencies-container'>
             <Currencies handleChange={this.setCurrentCurrency} currencies={this.props.currencies}/>
-            {this.state.active? <CartModal active={this.state.active} toggle={this.setActive} children={<div>hola</div>}/> : ""}
+            {this.state.active ? 
+              <CartModal 
+                active={this.state.active} 
+                toggle={this.setActive} 
+                cart={this.state.cart}
+                goToCart={this.toggleShow}
+              />  
+              : 
+              ""
+            }
             <div>
             <div className='cart-product-counter'>
               {this.state.counter}

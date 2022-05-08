@@ -17,6 +17,8 @@
 }
 
 .info-modal-button {
+    background-color: #5ECE7B;
+    box-shadow: 1px 1px 4px 1px rgb(199, 199, 199);
     font-size: 15px;
     color: white;
     border: none;
@@ -24,6 +26,15 @@
     height: 6vh;
     cursor: pointer;
     margin-top: 12px;
+    transition: 0.5s;
+    
+}
+
+.info-modal-button:hover {
+    transition: 0.5s;
+    background-color: white;
+    color: #5ECE7B;
+    border: #5ECE7B 1px solid;
 }
 
 .info-modal-description {
@@ -89,7 +100,7 @@
 .attribute {
     font-size: 10px;
     padding: 6px 12px 6px 12px;
-    border: 1px solid black;
+    border: 1px solid rgb(169, 169, 169);
     transition: 0.5s;
     cursor: pointer;
 }
@@ -105,7 +116,7 @@
     width: 15px;
     margin: 0px 3px 0px 0px;
     padding: 6px 12px 6px 12px;
-    border: 1px solid black;
+    border: 1px solid rgb(180, 180, 180);
     transition: 0.5s;
     cursor: pointer;
 }
@@ -139,7 +150,7 @@
 .info-modal-close-button:hover {
     background-color: black;
     color: white;
-    transition: 0.5s al
+    transition: 0.5s;
 }
 
 .coin-label-container {

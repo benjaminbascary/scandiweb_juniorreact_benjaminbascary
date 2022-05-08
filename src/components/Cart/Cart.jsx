@@ -27,7 +27,7 @@ export default class Cart extends Component {
   render() {
     return (
 			<div className='cart-container'>
-				<div className='cart-list-container'>
+				<div className={this.state.cart.length ? 'cart-list-container' : 'cart-list-container empty'}>
 					{
 						this.state.cart.map((eachProduct) => {
 							return (
@@ -45,7 +45,6 @@ export default class Cart extends Component {
 										<p>{eachProduct.brand}</p>
 									</div>
 									<div className='cart-product-price-container'>
-										<input type='number' placeholder='1' className='cart-product-quantity-input'></input>
 										<p className='cart-product-price'>
 											{
 												this.props.symbol === COINS.USD.symbol ? eachProduct.prices[COINS.USD.index].amount
@@ -81,11 +80,14 @@ export default class Cart extends Component {
 							);
 						})
 					}
-        {
+        
+				</div>
+				{
         	this.state.cart.length ?
 						<div className='total-container'>
 							<p className="total-info">Sub: {COINS.USD.symbol} {this.setTotal().toFixed(2)}</p>
 							<p className="total-info tax-info">{`TAX: ${DEFAULT_TAX}`}</p>
+							<p className="total-info tax-info">Qty: {this.state.cart.length}</p>
 							<h3 className="total-info">TOTAL: {COINS.USD.symbol} {(Number(this.setTotal().toFixed(2)) + Number(DEFAULT_TAX))}</h3>
         			<button className='order-button'>ORDER</button>
 						</div>
@@ -94,7 +96,6 @@ export default class Cart extends Component {
         			<p className='empty-bag-message'>Oops! Looks like you haven't added anything to your cart yet!</p>
 						</div>
         }
-				</div>
 			</div>
     );
   };

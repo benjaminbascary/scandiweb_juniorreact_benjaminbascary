@@ -22,7 +22,7 @@ export default class Currencies extends Component {
         <select ref={this.selectInput} onChange={this.handleChange} className='select-currencies'>
           {
             this.props.currencies.map((eachCurrency) => {
-              return <option value={eachCurrency.symbol}>{eachCurrency.symbol}</option>
+              return <option key={eachCurrency.symbol} value={eachCurrency.symbol}>{eachCurrency.symbol}</option>
             })
           }
         </select>
