@@ -69,4 +69,29 @@
     border-radius: 2px;
 }
 
+.empty-bag-container {
+    margin-top: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.empty-bag-message {
+    font-weight: 100;
+    font-size: 30px;
+}
+
+.total-container {
+    width: 100%;
+    margin-right: 30vh;
+}
+
+.total-info {
+    margin-left: 90%;
+    width: 209px;
+}
+
+.tax-info > {
+    font-family: RobotoCondensed;
+}

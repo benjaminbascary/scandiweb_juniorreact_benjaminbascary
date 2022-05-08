@@ -7,24 +7,26 @@ export default class Currencies extends Component {
     super(props)
     this.state = {
       symbol : "$"
-    }
+    };
   };
 
-  selectInput = React.createRef()  
+  selectInput = React.createRef();  
 
   handleChange = async () => {
-    this.props.handleChange(this.selectInput.current.value)
-  }
+    this.props.handleChange(this.selectInput.current.value);
+  };
 
   render() {
     return (
       <div className='currencies-container'>
         <select ref={this.selectInput} onChange={this.handleChange} className='select-currencies'>
-          {this.props.currencies.map((eachCurrency) => {
-            return <option value={eachCurrency.symbol}>{eachCurrency.symbol}</option>
-          })}
+          {
+            this.props.currencies.map((eachCurrency) => {
+              return <option value={eachCurrency.symbol}>{eachCurrency.symbol}</option>
+            })
+          }
         </select>
       </div>
     )
-  }
-}
+  };
+};

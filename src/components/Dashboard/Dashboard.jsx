@@ -5,7 +5,7 @@ import CartModal from '../CartModal/CartModal';
 import "./Dashboard.css";
 import Currencies from '../Currencies/Currencies';
 
-import { COIN } from '../../utils/coins';
+import { COINS } from '../../utils/Enums';
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export default class Dashboard extends Component {
     this.state = {
       products : {...props},
       currencies : this.props.currencies,
-      currentSymbol: COIN.USD.symbol,
+      currentSymbol: COINS.USD.symbol,
       currentPriceIndex: 0,
       cart : [],
       showShop: true,
@@ -40,7 +40,6 @@ export default class Dashboard extends Component {
   };
 
   setCurrentCurrency = (symbol) => {
-    /*this.setCurrentCurrencyIndex(this.state.currentSymbol)*/
     this.setState(({currentSymbol : symbol}))
   };
 
@@ -83,7 +82,10 @@ export default class Dashboard extends Component {
               </div>
             </div>
           :
-            <Cart products={this.state.cart}/>
+            <Cart 
+              products={this.state.cart}
+              symbol={this.state.currentSymbol}
+            />
         }
       </div>
     );

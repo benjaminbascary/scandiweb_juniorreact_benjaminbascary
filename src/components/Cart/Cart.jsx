@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { DEFAULT_IMG_INDEX, DEFAULT_TAX } from '../../utils/Defaults';
+import { COINS } from '../../utils/Enums';
 import './Cart.css';
 
 export default class Cart extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			cart : props.products
+			cart : props.products,
+			finalPrice : 0,
 		};
 	};
 
@@ -13,38 +16,83 @@ export default class Cart extends Component {
 		console.log(`there is currently ${this.state.cart.length} products in the cart`)
 	};
 
+	setTotal = () => {
+		let totalSum = 0;
+		this.state.cart.map(each => {
+			return totalSum = totalSum + each.prices[COINS.USD.index].amount
+		})
+		return totalSum;
+	}
+
   render() {
     return (
 			<div className='cart-container'>
 				<div className='cart-list-container'>
-					{this.state.cart.map((eachProduct) => {
-						return (
-							<div key={eachProduct.id} className='cart-product-container'>
-								{console.log(eachProduct)}
-								<div className='cart-product-image-container'>
-									<img
-									className='product-image'
-									src={eachProduct.gallery[0]}
-									alt={eachProduct.name}
-									/>
+					{
+						this.state.cart.map((eachProduct) => {
+							return (
+								<div key={eachProduct.id} className='cart-product-container'>
+									{console.log(eachProduct)}
+									<div className='cart-product-image-container'>
+										<img
+										className='product-image'
+										src={eachProduct.gallery[DEFAULT_IMG_INDEX]}
+										alt={eachProduct.name}
+										/>
+									</div>
+									<div className='cart-product-info-container'>
+										<p>{eachProduct.name}</p>
+										<p>{eachProduct.brand}</p>
+									</div>
+									<div className='cart-product-price-container'>
+										<input type='number' placeholder='1' className='cart-product-quantity-input'></input>
+										<p className='cart-product-price'>
+											{
+												this.props.symbol === COINS.USD.symbol ? eachProduct.prices[COINS.USD.index].amount
+												:
+												this.props.symbol === COINS.LIB.symbol ? eachProduct.prices[COINS.LIB.index].amount
+												:
+												this.props.symbol === COINS.AUS.symbol ? eachProduct.prices[COINS.AUS.index].amount
+												:
+												this.props.symbol === COINS.YEN.symbol ? eachProduct.prices[COINS.YEN.index].amount
+												:
+												this.props.symbol === COINS.RUB.symbol ? eachProduct.prices[COINS.RUB.index].amount
+												:
+												null
+											}
+										</p>
+										<p className='cart-product-currency'>
+											{	
+												this.props.symbol === COINS.USD.symbol ? [COINS.USD.symbol] 
+												:
+												this.props.symbol === COINS.LIB.symbol ? [COINS.LIB.symbol]
+												:
+												this.props.symbol === COINS.AUS.symbol ? [COINS.AUS.symbol]
+												:
+												this.props.symbol === COINS.YEN.symbol ? [COINS.YEN.symbol]
+												:
+												this.props.symbol === COINS.RUB.symbol ? [COINS.RUB.symbol]
+												:
+												null
+											}	
+										</p>
+									</div>
 								</div>
-								<div className='cart-product-info-container'>
-									<p>{eachProduct.name}</p>
-									<p>{eachProduct.brand}</p>
-								</div>
-								<div className='cart-product-price-container'>
-									<input type='number' placeholder='1' className='cart-product-quantity-input'></input>
-									<p className='cart-product-prince'>{eachProduct.prices[0].amount}</p>
-									<p className='cart-product-currency'>{eachProduct.prices[0].currency.label}</p>
-								</div>
-							</div>
 							);
-					})}
+						})
+					}
         {
-        this.state.cart.length?
-        <button className='order-button'>ORDER</button>
-        : 
-        "You have no items in your bag yet!"
+        	this.state.cart.length ?
+						<div className='total-container'>
+							<p className="total-info">Sub: {COINS.USD.symbol} {this.setTotal().toFixed(2)}</p>
+							<p className="total-info tax-info">{`TAX: ${DEFAULT_TAX}`}</p>
+							<h3 className="total-info">TOTAL: {COINS.USD.symbol} {(Number(this.setTotal().toFixed(2)) + Number(DEFAULT_TAX))}</h3>
+        			<button className='order-button'>ORDER</button>
+						</div>
+        	: 
+						<div className='empty-bag-container'>
+        			<p className='empty-bag-message'>Oops! Looks like you haven't added anything to your cart yet!</p>
+						</div>
         }
 				</div>
 			</div>

@@ -5,15 +5,15 @@ import './CartModal.css';
 export default class CartModal extends Component {
   render() {
 
-  const { children, toggle, active } = this.props;
+  const { toggle, active } = this.props;
 
     return (
       <Portal>
         {active && (
           <div style={styles.wrapper}>
             <div style={styles.window}>
-              <button className='modal-button' style={styles.closeBtn} onClick={toggle}>SAVE</button>
-              <div>{children}</div>
+              
+              <button className='check-out-modal-button' style={styles.closeBtn} onClick={toggle}>CHECK OUT</button>
             </div>
           </div>
         )}
@@ -27,8 +27,8 @@ const styles = {
     position: "absolute",
     top: 0,
     left: 0,
-    width: "100%",
-    height: "90vh",
+    width: "174%",
+    height: "94vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -36,8 +36,6 @@ const styles = {
   window: {
     display: "flex",
     flexDirection: "colum",
-    justifyContent: "center",
-    alignItems: "center",
     position: "relative",
     background: "#fff",
     borderRadius: 5,

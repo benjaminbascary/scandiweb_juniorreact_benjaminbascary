@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Portal from '../Portal/Portal';
 import parse from 'html-react-parser';
 import "./InfoModal.css";
+import { COINS } from '../../utils/Enums';
 
 export default class InfoModal extends Component {
 
@@ -68,11 +69,46 @@ export default class InfoModal extends Component {
 										}
 									</div>
 									<p className='info-modal-price-text'>PRICE:</p>
-									<p className='info-modal-price-numbers'>{this.state.product.props.prices[0].currency.label} {this.state.product.props.prices[0].amount}</p>
+									<div className='info-modal-price-numbers'>
+										{ 
+											this.props.symbol === COINS.USD.symbol ? 
+											<div className='coin-label-container'>
+												<p>{this.state.product.props.prices[COINS.USD.index].currency.label}</p>
+												<p>{this.state.product.props.prices[COINS.USD.index].amount}</p>
+											</div>
+											:
+											this.props.symbol === COINS.LIB.symbol ?
+											<div className='coin-label-container'>
+												<p>{this.state.product.props.prices[COINS.LIB.index].currency.label}</p>
+												<p>{this.state.product.props.prices[COINS.LIB.index].amount}</p>
+											</div>
+											:
+											this.props.symbol === COINS.AUS.symbol ?
+											<div className='coin-label-container'>
+												<p>{this.state.product.props.prices[COINS.AUS.index].currency.label}</p>
+												<p>{this.state.product.props.prices[COINS.AUS.index].amount}</p>
+											</div>
+											:
+											this.props.symbol === COINS.YEN.symbol ?
+											<div className='coin-label-container'>
+												<p>{this.state.product.props.prices[COINS.YEN.index].currency.label}</p>
+												<p>{this.state.product.props.prices[COINS.YEN.index].amount}</p>
+											</div>
+											:
+											this.props.symbol === COINS.RUB.symbol ?
+											<div className='coin-label-container'>
+												<p>{this.state.product.props.prices[COINS.RUB.index].currency.label}</p>
+												<p>{this.state.product.props.prices[COINS.RUB.index].amount}</p>
+											</div>
+											:
+											null	
+										}
+									</div>
 									<button onClick={() => {this.props.update(); toggle()}} className='info-modal-button' style={styles.closeBtn} >ADD TO CART</button>
 									<div className='info-modal-description'>
 										{parse(this.state.product.props.description)}
 									</div>
+									<button className='info-modal-close-button' onClick={this.props.toggle}>Close</button>
 								</div>
 							</div>
 							<div>{console.log(this.state.product)}</div>

@@ -124,3 +124,28 @@
     width: auto;
     height: 100%;
 }
+
+.info-modal-close-button {
+    padding: 1vh 3vh 1vh 3vh;
+    font-family: "Roboto Condensed";
+    margin-top: 30px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 1px;
+    cursor: pointer;
+    transition: 0.5s all;
+}
+
+.info-modal-close-button:hover {
+    background-color: black;
+    color: white;
+    transition: 0.5s al
+}
+
+.coin-label-container {
+    display: flex;
+}
+
+.coin-label-container > p {
+    margin-right: 10px;
+}
