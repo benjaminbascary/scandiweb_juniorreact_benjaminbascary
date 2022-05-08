@@ -50,8 +50,13 @@ export default class Dashboard extends Component {
           <div className='title-container'>
             <h1 className='header-title'>Scandiweb Store</h1>
           </div>
-          <div className='button-container' onClick={this.toggleShow}>
-            <p className='button-container-text'>{this.state.showShop ? "CHECK OUT" : "CONTINUE SHOPPING"}</p>
+          <div className='toggle-cart-container' onClick={this.toggleShow}>
+            <img 
+              className='toggle-cart-image'
+              src='./resources/cart_logo.png'
+              alt='cart-logo'
+            />
+            <p className='continue-shopping-message'>{this.state.showShop ? null : "CONTINUE SHOPPING"}</p>
           </div>
           <div className='button-currencies-container'>
             <Currencies handleChange={this.setCurrentCurrency} currencies={this.props.currencies}/>
