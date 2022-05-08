@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Portal from '../Portal/Portal';
 import parse from 'html-react-parser';
 import "./InfoModal.css";
-
 import { COINS, INDEXES, IMG_INDEXES } from '../../utils/Enums';
 
 export default class InfoModal extends Component {
