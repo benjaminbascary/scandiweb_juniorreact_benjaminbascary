@@ -5,7 +5,7 @@ import Dashboard from '../Dashboard/Dashboard.jsx';
 import "./GetProducts.css";
 const GetProducts = () => {
 
-  const { error, loading, data } = useQuery(LOAD_PRODUCTS);
+  const { data } = useQuery(LOAD_PRODUCTS);
 
   return (
     <div>

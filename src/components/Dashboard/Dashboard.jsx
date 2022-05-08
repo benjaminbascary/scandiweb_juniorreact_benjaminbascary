@@ -5,7 +5,7 @@ import CartModal from '../CartModal/CartModal';
 import "./Dashboard.css";
 import Currencies from '../Currencies/Currencies';
 
-import { COINS } from '../../utils/Enums';
+import { COINS, INDEXES } from '../../utils/Enums';
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class Dashboard extends Component {
       products : {...props},
       currencies : this.props.currencies,
       currentSymbol: COINS.USD.symbol,
-      currentPriceIndex: 0,
+      currentPriceIndex: INDEXES.EMPTY.index,
       cart : [],
       showShop: true,
       showPreCart: false,

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Portal from '../Portal/Portal';
 import parse from 'html-react-parser';
 import "./InfoModal.css";
-import { COINS } from '../../utils/Enums';
+
+import { COINS, INDEXES, IMG_INDEXES } from '../../utils/Enums';
 
 export default class InfoModal extends Component {
 
@@ -26,7 +27,7 @@ export default class InfoModal extends Component {
 							<div className='info-modal-container'>
 								<div className='info-modal-container-left'>
 									{
-										this.state.product.props.gallery.length > 0 ? 
+										this.state.product.props.gallery.length > INDEXES.EMPTY.index ? 
 										<div className='thumbnail-gallery'>
 											{this.state.product.props.gallery.map((each) => {
 												return <img key={each} className="thumbnail" src={each} alt="thumbnail"/>
@@ -37,7 +38,7 @@ export default class InfoModal extends Component {
 									}
 										<img 
 											className='main-thumbnail'
-											src={this.state.product.props.gallery[0]}
+											src={this.state.product.props.gallery[IMG_INDEXES.FIRST.index]}
 											alt="product"
 										/>
 								</div>
@@ -57,11 +58,17 @@ export default class InfoModal extends Component {
 																	{
 																		eachAtr.name === "Color" ?  
 																		<div className='attributes-container'>
-																			{eachAtr.items.map(eachSubAtr => {return <div className='color-attribute' style={{ backgroundColor: `${eachSubAtr.value}`}}></div>})}
+																			{eachAtr.items.map(eachSubAtr => {
+																				return <div className='color-attribute' 
+																										style={{ backgroundColor: `${eachSubAtr.value}`}}
+																								></div>
+																								})
+																							}
 																		</div>
 																	:  
 																		<div className='attributes-container'>
-																			{eachAtr.items.map(eachSubAtr => {return <p className='attribute'>{eachSubAtr.value}</p>})}
+																			{eachAtr.items.map(eachSubAtr => {
+																				return <p className='attribute'>{eachSubAtr.value}</p>})}
 																		</div>
 																	}
 																</div>
@@ -105,11 +112,22 @@ export default class InfoModal extends Component {
 											null	
 										}
 									</div>
-									<button onClick={() => {this.props.update(); toggle()}} className='info-modal-button' style={styles.closeBtn} >ADD TO CART</button>
+									<button 
+										onClick={() => {this.props.update(); toggle()}} 
+										className='info-modal-button' 
+										style={styles.closeBtn}
+									>
+										ADD TO CART
+									</button>
 									<div className='info-modal-description'>
 										{parse(this.state.product.props.description)}
 									</div>
-									<button className='info-modal-close-button' onClick={toggle}>Close</button>
+									<button 
+										className='info-modal-close-button' 
+										onClick={toggle}
+									>
+										Close
+									</button>
 								</div>
 							</div>
 							<div>{console.log(this.state.product)}</div>
@@ -118,8 +136,8 @@ export default class InfoModal extends Component {
         )}
       </Portal>
     )
-  }
-}
+  };
+};
 
 const styles = {
   wrapper: {
@@ -149,7 +167,5 @@ const styles = {
     height: "80vh",
 		marginTop: "100px",
   },
-  closeBtn: {
-    
-  }
+  closeBtn: {}
 };

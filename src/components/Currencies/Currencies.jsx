@@ -5,9 +5,7 @@ export default class Currencies extends Component {
 
   constructor(props){
     super(props)
-    this.state = {
-      symbol : "$"
-    };
+    this.state = {};
   };
 
   selectInput = React.createRef();  

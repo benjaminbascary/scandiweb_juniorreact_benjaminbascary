@@ -7,8 +7,7 @@ export default class Cart extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			cart : props.products,
-			finalPrice : 0,
+			cart : props.products
 		};
 	};
 
@@ -22,7 +21,7 @@ export default class Cart extends Component {
 			return totalSum = totalSum + each.prices[COINS.USD.index].amount
 		})
 		return totalSum;
-	}
+	};
 
   render() {
     return (
@@ -84,7 +83,7 @@ export default class Cart extends Component {
 				</div>
 				{
         	this.state.cart.length ?
-						<div className='total-container'>
+						<div className='cart-total-container'>
 							<p className="total-info">Sub: {COINS.USD.symbol} {this.setTotal().toFixed(2)}</p>
 							<p className="total-info tax-info">{`TAX: ${DEFAULT_TAX}`}</p>
 							<p className="total-info tax-info">Qty: {this.state.cart.length}</p>

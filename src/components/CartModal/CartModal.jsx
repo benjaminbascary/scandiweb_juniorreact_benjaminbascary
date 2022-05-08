@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Portal from '../Portal/Portal';
 import './CartModal.css';
-import { COINS } from '../../utils/Enums';
+import { COINS, IMG_INDEXES } from '../../utils/Enums';
 
 export default class CartModal extends Component {
 
@@ -44,7 +44,7 @@ export default class CartModal extends Component {
                             {eachItem.attributes.map(each => {
                               return ( 
                                 <div>
-                                  <p className='pre-cart-item-attribute'>{each.name}</p>                                  
+                                  <p className='pre-cart-item-attribute'>{each.name}:</p>                                  
                                   <div className='pre-cart-item-attribute-values-container'>
                                   {
                                     each.name === "Color" ?
@@ -65,7 +65,7 @@ export default class CartModal extends Component {
                         <div>
                           <img 
                             className='pre-cart-item-image'
-                            src={eachItem.gallery[0]}
+                            src={eachItem.gallery[IMG_INDEXES.FIRST.index]}
                             alt="item"
                           />
                         </div>

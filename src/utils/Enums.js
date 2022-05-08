@@ -20,3 +20,15 @@ export const COINS = {
         index : 4
     }
 };
+
+export const INDEXES = {
+    EMPTY : {
+        index : 0
+    },
+};
+
+export const IMG_INDEXES = {
+    FIRST : {
+        index : 0
+    },
+};
