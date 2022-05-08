@@ -1,35 +1,7 @@
-import { 
-  ApolloClient,
-  InMemoryCache, 
-  ApolloProvider,
-  HttpLink,
-  from, 
-} from "@apollo/client";
-import {onError} from '@apollo/client/link/error';
+import { ApolloProvider } from "@apollo/client";
 import React, { Component } from "react";
 import GetProducts from "./components/GetProducts/GetProducts";
-import URI from "./utils/graphQlUri";
-
-//GraphQl logic
-const errorLink = onError(({ graphqlErrors, networkErrors }) => {
-  if (graphqlErrors) {
-    graphqlErrors.map(({message, location, path}) => {
-      return console.log(`GraphQl Error: ${message} in ${location} at ${path}`)
-    });
-  };
-});
-
-const link = from([
-  errorLink,
-  new HttpLink({ uri: URI })
-]);
-
-const client = new ApolloClient({
-  cache : new InMemoryCache(),
-  link : link
-});
-
-// Store App
+import client from "./graphql/client";
 
 class App extends Component {
   render() {
