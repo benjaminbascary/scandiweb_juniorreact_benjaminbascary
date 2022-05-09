@@ -16,7 +16,9 @@
 
 ## :books: Technology used to make this app:
 
-
+<img src="readmeimages/tech.jpeg">
 
 ## Javascryt, React, GraphQl and Cypress for integration tests.
+
+### Other things implemented: Good file modulation, Enums to avoid "magic numbers" (such as indexes or symbols)
 
