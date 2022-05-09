@@ -21,7 +21,9 @@
 
 ## Javascryt, React, GraphQl and Cypress for integration tests.
 
-### Other things implemented: Good file modulation, Enums to avoid "magic numbers" (such as indexes or symbols), and most importantly: Integration Tests.
+### Other things implemented: Good file modulation, Enums to avoid "magic numbers" (such as indexes or symbols), ApolloClient and most importantly: Integration Tests.
+### Dashboard.jsx is the "handler" file.
+### In utils folder you can find Enums, graphQl URI and Default values for avoiding magic numbers in the app structure.
 
 ## 🧰 Scripts:
 
@@ -33,4 +35,15 @@
 ### 3rd (optional): If you want to continue the tests, you can run:
 ### > npm run cypress for headless tests
 ### > npm run cy for normal Cypress window.
+#### (all tests are written in __tests__ folder)
+
+## ❓ Difficulties writting the code:
+
+### First, as I mentioned earlier the main difficulty was the Class Components.
+### To handle the Product page and Mini-Cart logic, I implemented the Portal module that comes in react-app installation (first time using it). To implement it, a separated "root" needs to be created in the html file. You can go and see it if you like!
+### For the description structure I chose to parse it with the "html-react-parser" library.
+
+## In the end, this was a real challenge! Felt great an proud to finish this app and be able to share with ScandiWeb team.
+
+### :e-mail: Any suggestions are welcome. Please write e-mail to this address: benjaminbascary@gmail.com
 
