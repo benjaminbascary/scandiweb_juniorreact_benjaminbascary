@@ -58,8 +58,10 @@ export default class InfoModal extends Component {
 																		eachAtr.name === "Color" ?  
 																		<div className='attributes-container'>
 																			{eachAtr.items.map(eachSubAtr => {
-																				return <div className='color-attribute' 
-																										style={{ backgroundColor: `${eachSubAtr.value}`}}
+																				return <div 
+																									key={eachSubAtr.value}
+																									className='color-attribute' 
+																									style={{ backgroundColor: `${eachSubAtr.value}`}}
 																								></div>
 																								})
 																							}
@@ -67,7 +69,7 @@ export default class InfoModal extends Component {
 																	:  
 																		<div className='attributes-container'>
 																			{eachAtr.items.map(eachSubAtr => {
-																				return <p className='attribute'>{eachSubAtr.value}</p>})}
+																				return <p key={eachSubAtr.value} className='attribute'>{eachSubAtr.value}</p>})}
 																		</div>
 																	}
 																</div>
@@ -112,6 +114,7 @@ export default class InfoModal extends Component {
 										}
 									</div>
 									<button 
+										data-cy="add-to-cart-button"
 										onClick={() => {this.props.update(); toggle()}} 
 										className='info-modal-button' 
 										style={styles.closeBtn}

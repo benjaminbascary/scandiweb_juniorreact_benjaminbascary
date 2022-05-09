@@ -19,7 +19,7 @@ export default class Product extends Component {
 
   render() {
     return (
-      <div className='product-wrapper'>
+      <div data-test-id="product" className='product-wrapper'>
         <div className='image-wrapper'>
           <img
             className={this.state.product.props.inStock ? "image" : "image out-stock"} 
@@ -62,6 +62,7 @@ export default class Product extends Component {
             {
               this.state.product.props.inStock ?
               <img
+                data-cy="product-modal-button"
                 className='add-product-button'
                 src='./resources/add.png'
                 alt='add'

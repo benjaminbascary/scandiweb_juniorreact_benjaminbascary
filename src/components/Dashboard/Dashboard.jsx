@@ -4,7 +4,6 @@ import Product from '../Product/Product';
 import CartModal from '../CartModal/CartModal';
 import "./Dashboard.css";
 import Currencies from '../Currencies/Currencies';
-
 import { COINS, INDEXES } from '../../utils/Enums';
 
 export default class Dashboard extends Component {
@@ -60,21 +59,28 @@ export default class Dashboard extends Component {
           </div>
           <div className='button-currencies-container'>
             <Currencies handleChange={this.setCurrentCurrency} currencies={this.props.currencies}/>
-            {this.state.active ? 
-              <CartModal 
-                active={this.state.active} 
-                toggle={this.setActive} 
-                cart={this.state.cart}
-                goToCart={this.toggleShow}
-              />  
-              : 
-              ""
+            {
+              this.state.active ? 
+                <CartModal 
+                  active={this.state.active} 
+                  toggle={this.setActive} 
+                  cart={this.state.cart}
+                  goToCart={this.toggleShow}
+                />  
+                : 
+                ""
             }
             <div>
             <div className='cart-product-counter'>
               {this.state.counter}
             </div>
-            <img className="header-cart-button" onClick={this.setActive} src="./resources/cart.png" alt="pre-cart"></img>
+            <img
+              data-cy="cart-modal-button" 
+              className="header-cart-button" 
+              onClick={this.setActive} 
+              src="./resources/cart.png" 
+              alt="pre-cart">
+            </img>
           </div>
         </div>
         </div>

@@ -7,10 +7,8 @@ export default class CartModal extends Component {
 
   constructor(props){
     super(props)
-    this.state = {
-
-    }
-  }
+    this.state = { }
+  };
 
   setTotal = () => {
 		let totalSum = 0;
@@ -18,7 +16,7 @@ export default class CartModal extends Component {
 			return totalSum = totalSum + each.prices[COINS.USD.index].amount
 		})
 		return totalSum;
-	}
+	};
 
   render() {
 
@@ -43,17 +41,17 @@ export default class CartModal extends Component {
                           <div className='pre-cart-item-atributes-container'>
                             {eachItem.attributes.map(each => {
                               return ( 
-                                <div>
+                                <div key={each.name}>
                                   <p className='pre-cart-item-attribute'>{each.name}:</p>                                  
                                   <div className='pre-cart-item-attribute-values-container'>
                                   {
                                     each.name === "Color" ?
                                       each.items.map(each => {
-                                      return <div className='color-container' style={{ backgroundColor: `${each.value}`}}></div>
+                                      return <div key={each.value} className='color-container' style={{ backgroundColor: `${each.value}`}}></div>
                                       })
                                     : 
                                       each.items.map(each => {
-                                        return <div className='value-container'><p>{each.value}</p></div>
+                                        return <div key={each.value} className='value-container'><p>{each.value}</p></div>
                                         })
                                   }                                  
                                   </div>                                  
@@ -79,7 +77,8 @@ export default class CartModal extends Component {
                 <p>  {COINS.USD.symbol} {(Number(this.setTotal().toFixed(2)))}</p>
               </div>
               </div>
-              <button 
+              <button
+                data-cy="check-out-modal-button"
                 className='check-out-modal-button' 
                 style={styles.checkOutBtn} 
                 onClick={() => {this.props.goToCart(); this.props.toggle()}}
@@ -97,8 +96,8 @@ export default class CartModal extends Component {
         )}
       </Portal>
     )
-  }
-}
+  };
+};
 
 const styles = {
   wrapper: {
